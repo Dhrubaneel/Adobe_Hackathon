@@ -49,4 +49,9 @@ public class Details extends AppCompatActivity {
         String imgURL  = ConstantVariables.baseURL+objCardDetails.getContent().getImgSrc().getPath();
         new DownLoadImageTask(productImage).execute(imgURL);
     }
+
+    @Override
+    public void onBackPressed() {
+        activity.finish();
+    }
 }

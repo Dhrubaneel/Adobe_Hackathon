@@ -7,10 +7,10 @@ import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.tcs.dhrubaneel.hackathonapp.R;
@@ -18,14 +18,13 @@ import com.tcs.dhrubaneel.hackathonapp.adapters.ProductAdapter;
 import com.tcs.dhrubaneel.hackathonapp.pojo.serviceOutput.CardDetails;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class HomePage extends AppCompatActivity {
 
     private static FragmentActivity activity;
     private static Context context;
     ArrayList<CardDetails> allCardDetails = new ArrayList<>();
-    private static ListView productList;
+    private static RecyclerView productList;
     private boolean doubleBackToExitPressedOnce = false;
     private Toast mExitToast=null;
 
@@ -41,15 +40,19 @@ public class HomePage extends AppCompatActivity {
 
         mExitToast=Toast.makeText(getApplicationContext(), "Double back press to close application.", Toast.LENGTH_SHORT);
 
-        productList = (ListView)findViewById(R.id.product_list);
+        productList = (RecyclerView) findViewById(R.id.product_list);
 
         Intent intent = getIntent();
         allCardDetails = (ArrayList<CardDetails>)intent.getSerializableExtra("allCardDetails");
 
+        // set up the RecyclerView
         Resources res = activity.getResources();
-        productList.setVisibility(View.VISIBLE);
-        ProductAdapter adapter = new ProductAdapter(activity,allCardDetails,res);
+        int numberOfColumns = 3;
+        productList.setLayoutManager(new GridLayoutManager(this, numberOfColumns));
+        ProductAdapter adapter;
+        adapter = new ProductAdapter(activity,allCardDetails,res);
         productList.setAdapter(adapter);
+        productList.setVisibility(View.VISIBLE);
     }
     //Executes once the activity resumes
     @Override
