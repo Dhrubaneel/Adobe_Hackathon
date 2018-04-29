@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HackathonApp</string>
+    <string name="splash_logo">Splash Screen Logo</string>
+    <string name="homapage_heading">Do business on \nyour terms</string>
+    <string name="footer_heading">Savings Account</string>
+    <string name="footer_text">Let your money grow and develop your passion</string>
+    <string name="product_heading">Credit Cards</string>
+</resources>
