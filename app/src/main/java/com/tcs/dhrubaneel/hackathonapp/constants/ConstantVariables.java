@@ -4,7 +4,7 @@ import android.util.Base64;
 
 public class ConstantVariables {
     public static String baseURL="http://fex301-publish.adobesandbox.com";
-    public static String jsonURL="/content/entities/content-fsi-app580/content/root/children/credit-cards/children/";
+    public static String jsonURL="/content/entities/content-fsi-app570/content/root/children/credit-cards/children/";
     public static String auth_token = basicAuth();
 
 
