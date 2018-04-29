@@ -12,7 +12,10 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/product_details_image"/>
+        android:id="@+id/product_details_image"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
